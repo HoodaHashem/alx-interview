@@ -1,8 +1,12 @@
 #!/usr/bin/python3
 """ Module for Pascal's triangle """
 
+
 def pascal_triangle(n):
-    """Returns a list of lists of integers representing the Pascal’s triangle of n."""
+    """
+    Returns a list of lists of integers representing
+    the Pascal’s triangle of n.
+    """
 
     if n <= 0:
         return []
@@ -15,7 +19,7 @@ def pascal_triangle(n):
             RLIST.append([1])
         elif len(lst) == 1:
             lst.append(1)
-            RLIST.append([1,1])
+            RLIST.append([1, 1])
         else:
             ndlst = []
             x = 0
