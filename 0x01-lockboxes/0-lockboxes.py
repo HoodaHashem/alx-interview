@@ -45,8 +45,10 @@ def canUnlockAll(boxes):
     """
     unlock all boxes
     """
-    if len(boxes) == 0 or len(boxes) == 1:
+    if len(boxes) == 0:
         return True
+    if len(boxes) == 1 and len(boxes[0]) != 0:
+        return False
     d = Graph(boxes=boxes).markAll(0)
     for values in d.values():
         if '#' not in values:
