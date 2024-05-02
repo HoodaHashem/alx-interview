@@ -16,36 +16,34 @@ Return True if all boxes can be opened, else return False
 """
 
 
-def unlockAll(boxes, lst):
-    """unlocks all the boxes in the lst"""
+class Graph:
+    """
+    this class to initialize the Graph
+    """
 
-    if lst == []:
-        return
-    lst2 = []
-    for i in lst:
-        try:
-            if True not in boxes[i]:
-                lst2.extend(boxes[i])
-        except Exception as e:
-            return
-        boxes[i].append(True)
-    unlockAll(boxes=boxes, lst=lst2)
-    return boxes
+    def __init__(self, boxes):
+        self.d = {}
+        for i in range(len(boxes)):
+            self.d[i] = boxes[i]
+
+    def markAll(self, node):
+        """to mark all the visited nodes in the graph"""
+
+        self.d[node].append('#')
+        for i in self.d[node]:
+            if i == '#':
+                continue
+            if '#' not in self.d[i]:
+                self.markAll(i)
+        return self.d
 
 
 def canUnlockAll(boxes):
-
     """
     unlock all boxes
     """
-
-    if boxes == [] or boxes == [[]]:
-        return True
-    checks = unlockAll(boxes, boxes[0])
-    checks[0].append(True)
-    for i in range(len(checks)):
-        if True in checks[i]:
-            pass
-        else:
+    d = Graph(boxes=boxes).markAll(0)
+    for values in d.values():
+        if '#' not in values:
             return False
     return True
