@@ -39,6 +39,3 @@ def canUnlockAll(boxes):
         else:
             return False
     return True
-
-boxes = [[1], [2], [3], [4], []]
-print(canUnlockAll(boxes))
