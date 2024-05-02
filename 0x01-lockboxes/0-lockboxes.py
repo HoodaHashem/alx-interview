@@ -33,10 +33,11 @@ class Graph:
         for i in self.d[node]:
             if i == '#':
                 continue
-            if i >= len(boxes):
-                continue
-            if '#' not in self.d[i]:
-                self.markAll(i)
+            try:
+                if '#' not in self.d[i]:
+                    self.markAll(i)
+            except Exception as e:
+                pass
         return self.d
 
 
