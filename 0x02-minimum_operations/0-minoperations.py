@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 def minOperations(n):
     count = 0
     x = 1
