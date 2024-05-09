@@ -1,6 +1,11 @@
 #!/usr/bin/python3
+"""
+minimum operation problem
+"""
 
 def minOperations(n):
+    """solution"""
+
     count = 0
     x = 1
     if n == 1:
