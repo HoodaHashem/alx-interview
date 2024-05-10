@@ -8,7 +8,7 @@ def minOperations(n):
     """minimum ops"""
 
     if n <= 1:
-        return n
+        return 0
     ops = 0
     divisor = 2
     while n > 1:
